@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Debug"/>
+    <Units>
+      <Unit>
+        <Filename Value="Core.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="48" Y="25"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="views\core.view.form.main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="29" Y="10"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.consts.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="30" Y="14"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.globals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="9"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.factories.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="11"/>
+        <CursorPos X="26" Y="75"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.types.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="14"/>
+        <CursorPos X="27" Y="171"/>
+        <FoldState Value=" TJE13415 pj9jX3O T3l7043c"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.enums.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="8"/>
+        <CursorPos Y="13"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.connections.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="52"/>
+        <CursorPos Y="318"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.files.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="36"/>
+        <CursorPos X="24" Y="82"/>
+        <UsageCount Value="120"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.helpers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="10"/>
+        <CursorPos X="5" Y="8"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.resources.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="54"/>
+        <CursorPos X="42" Y="64"/>
+        <UsageCount Value="80"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.init.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="5"/>
+        <CursorPos Y="25"/>
+        <FoldState Value=" T3V0U3Z"/>
+        <UsageCount Value="64"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.dao.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="7"/>
+        <CursorPos X="20" Y="18"/>
+        <UsageCount Value="57"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.identifier.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="41"/>
+        <UsageCount Value="39"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.querys.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="39"/>
+        <CursorPos Y="79"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="views\core.view.mobile.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="8"/>
+        <UsageCount Value="29"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.inout.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="194"/>
+        <CursorPos X="3" Y="194"/>
+        <FoldState Value=" T3iR0332E3311 Pj6lD0q"/>
+        <UsageCount Value="34"/>
+        <Bookmarks Count="1">
+          <Item0 X="9" Y="198" ID="1"/>
+        </Bookmarks>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.dialogs.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <CursorPos X="70" Y="97"/>
+        <FoldState Value=" T3lC0B02D1F pjfmP074 PJW0 T0lH23N"/>
+        <UsageCount Value="62"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="18" Y="23"/>
+        <UsageCount Value="28"/>
+      </Unit>
+      <Unit>
+        <Filename Value="classes\core.interfaces.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12" Y="9"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\sqldb\sqlite\sqlite3conn.pp"/>
+        <UnitName Value="SQLite3Conn"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="37" Y="65"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\sqldb\sqldb.pp"/>
+        <UnitName Value="SQLDB"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="169"/>
+        <CursorPos X="35" Y="185"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="49" Y="104"/>
+        <UsageCount Value="1"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\syshelph.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="156"/>
+        <CursorPos X="14" Y="175"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\syshelp.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1354"/>
+        <CursorPos X="3" Y="1371"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\filedialog.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="439"/>
+        <CursorPos Y="459"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\lclclasses.pp"/>
+        <UnitName Value="LCLClasses"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="141"/>
+        <CursorPos Y="165"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\widgetset\wslclclasses.pp"/>
+        <UnitName Value="WSLCLClasses"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="558"/>
+        <CursorPos Y="578"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="121"/>
+        <CursorPos X="3" Y="86"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\commondialog.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="44" Y="43"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-generics\src\inc\generics.dictionariesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="616"/>
+        <CursorPos X="3" Y="649"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-generics\src\generics.collections.pas"/>
+        <UnitName Value="Generics.Collections"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1151"/>
+        <CursorPos Y="1173"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Resources\SQLite.lrs"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\diskh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="10" Y="28"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\lazutils\fileutil.pas"/>
+        <UnitName Value="FileUtil"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="17" Y="58"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="820"/>
+        <CursorPos X="3" Y="839"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\db.pas"/>
+        <UnitName Value="DB"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2111"/>
+        <CursorPos X="32" Y="2001"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win64\system.pp"/>
+        <UnitName Value="System"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="31"/>
+        <CursorPos Y="16"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-objpas\src\inc\variants.pp"/>
+        <UnitName Value="Variants"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="456"/>
+        <CursorPos X="38" Y="162"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\base\bufdataset.pas"/>
+        <UnitName Value="BufDataset"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="425"/>
+        <CursorPos X="35" Y="445"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1889"/>
+        <CursorPos X="3" Y="1889"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-db\src\sqldb\mysql\mysqlconn.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="649"/>
+        <CursorPos X="5" Y="231"/>
+        <UsageCount Value="9"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="classes\core.connections.pas"/>
+        <Caret Line="27" Column="20"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="53" Column="60" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="119" Column="22" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="118" Column="44" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.connections.pas"/>
+        <Caret Line="98" Column="12" TopLine="71"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="38" Column="61" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="64" Column="36" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.types.pas"/>
+        <Caret Line="170" Column="49" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.types.pas"/>
+        <Caret Line="230" Column="6" TopLine="181"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.types.pas"/>
+        <Caret Line="220" Column="41" TopLine="182"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="60" Column="48" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.types.pas"/>
+        <Caret Line="180" Column="17" TopLine="157"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.types.pas"/>
+        <Caret Line="39" Column="20" TopLine="41"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="17" Column="37"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="27" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="17" Column="20"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="29" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="17" Column="29"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="30" Column="29"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.types.pas"/>
+        <Caret Line="206" Column="11" TopLine="184"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="16" Column="26"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="20" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="18" Column="32"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="21" Column="5"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.init.pas"/>
+        <Caret Line="79" TopLine="5"/>
+      </Position>
+      <Position>
+        <Filename Value="classes\core.factories.pas"/>
+        <Caret Line="32" Column="40" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.form.main.pas"/>
+        <Caret Line="71" Column="5" TopLine="50"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.form.main.pas"/>
+        <Caret Line="68" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.form.main.pas"/>
+        <Caret Line="83" Column="21" TopLine="50"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.form.main.pas"/>
+        <Caret Line="66" Column="18" TopLine="50"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,70 @@
+object FormMain: TFormMain
+  Left = 418
+  Height = 565
+  Top = 250
+  Width = 831
+  Caption = 'FormMain'
+  ClientHeight = 565
+  ClientWidth = 831
+  OnShow = FormShow
+  object Edit1: TEdit
+    Left = 24
+    Height = 23
+    Top = 80
+    Width = 304
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object Memo1: TMemo
+    Left = 24
+    Height = 136
+    Top = 409
+    Width = 219
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 1
+  end
+  object Image1: TImage
+    Left = 280
+    Height = 120
+    Top = 416
+    Width = 152
+    Stretch = True
+  end
+  object btRes3: TButton
+    Left = 24
+    Height = 25
+    Top = 224
+    Width = 75
+    Caption = 'Carregar'
+    TabOrder = 2
+  end
+  object btOpenDialogo: TButton
+    Left = 24
+    Height = 25
+    Top = 264
+    Width = 75
+    Caption = 'btOpenDialogo'
+    TabOrder = 3
+    OnClick = btOpenDialogoClick
+  end
+  object btSaveDialog: TButton
+    Left = 112
+    Height = 25
+    Top = 264
+    Width = 75
+    Caption = 'btSaveDialog'
+    TabOrder = 4
+    OnClick = btSaveDialogClick
+  end
+  object btDeleteDialog: TButton
+    Left = 192
+    Height = 25
+    Top = 264
+    Width = 75
+    Caption = 'btDeleteDialog'
+    TabOrder = 5
+    OnClick = btDeleteDialogClick
+  end
+end
