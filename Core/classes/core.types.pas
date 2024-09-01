@@ -89,19 +89,23 @@ type
     function KeepConnection(const KeepConnected: Boolean): IDBConnection;
     function LoginPrompt: Boolean;
     function LoginPrompt(const Prompt: Boolean): IDBConnection;
+    function UseWindowsAuth: Boolean;
+    function UseWindowsAuth(const AUseWindowsAuth: Boolean): IDBConnection;
+    function LibLocation: String;
+    function LibLocation(const ALibraryLocation: String): IDBConnection;
+    function Protocol: String;
+    function Protocol(const AConnProtocol: String): IDBConnection;
   end;
   {%ENDREGION}
 
   {%REGION 'Arquivos' - Interfaces de Arquivos}
   { Interface base de arquivo }
-  IFile = interface(ICore)
+  IFile = interface(IIdentifier)
     ['{60215D00-A34F-480B-B72E-303EB8813648}']
     function AsBytesStream: TBytesStream;
 
     function IsEmpty: Boolean;
 
-    function Name: string;
-    function Name(const AFileName: string): IFile;
     function Extension: String;
     function Extension(const AExtension: String): IFile;
     function Path: String;

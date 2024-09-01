@@ -1,0 +1,4 @@
+*.res
+backup
+bin
+/Core/lib

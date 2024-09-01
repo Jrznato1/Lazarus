@@ -8,8 +8,8 @@ interface
 uses
   core.types,
   Classes,
-  SysUtils,
-  Variants;
+  Controls,
+  SysUtils;
 
 type
   {%REGION 'Resources'}
@@ -18,12 +18,10 @@ type
   end;
   {%ENDREGION}
 
-  {%REGION 'Variant'}
-  TVariantHelper = type helper for Variant
-    function AsInteger: Integer;
+  {%REGION 'Caption'}
+  TCaptionHelper = type helper for TCaption
     function AsString: String;
   end;
-
   {%ENDREGION}
 
 implementation
@@ -49,16 +47,11 @@ begin
   end;
 end;
 
-{ TVariantHelper }
+{ TCaptionHelper }
 
-function TVariantHelper.AsInteger: Integer;
+function TCaptionHelper.AsString: String;
 begin
-  Result := Integer(Self);
-end;
-
-function TVariantHelper.AsString: String;
-begin
-  Result := VarToStr(Self);
+  Result := String(Self);
 end;
 
 end.

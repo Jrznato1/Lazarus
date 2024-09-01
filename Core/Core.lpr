@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms,
+  Forms, zcomponent,
   core.init,
   core.types,
   core.consts,
@@ -25,7 +25,7 @@ uses
   core.view.form.main,
   core.identifier,
   core.querys,
-  core.view.mobile;
+  core.view.mobile, core.view.mariadb;
 
 {$R *.res}
 
@@ -38,6 +38,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmMariaDB, frmMariaDB);
   Application.Run;
 end.
 

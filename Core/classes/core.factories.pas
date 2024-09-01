@@ -14,10 +14,7 @@ uses
   core.init,
 
   Classes,
-  SysUtils,
-  SQLite3Conn,
-  SQLDB,
-  mysql57conn;
+  SysUtils;
 
 type
   { Classe base de Fábrica }
@@ -37,7 +34,6 @@ type
     class function Resource: IResource; static;
     // Conexões
     class function SQLiteConnection: IDBConnection; static;
-    class function SQLServerConnection: IDBConnection; static;
     class function MariaDBConnection: IDBConnection; static;
     // Querys
     class function Query(const AConnection: IDBConnection): IQuery; static;
@@ -51,14 +47,6 @@ type
     // Listas
     class function Resources: TResources; static;
     class function StringList: TStringList; static;
-    // Conexões
-    class function SQLite3Conn: TSQLite3Connection; static;
-    class function SQLServerConn: TSQLConnector; static;
-    class function MySQL57Conn: TMySQL57Connection; static;
-    // Querys
-    class function SQLQuery: TSQLQuery; static;
-    // Transações
-    class function Transaction: TSQLTransaction; static;
   end;
 
   TFactories = record
@@ -87,17 +75,12 @@ end;
 
 class function TInterfaceFactory.SQLiteConnection: IDBConnection;
 begin
-  Result := TDBSqliteConnection.Create;
-end;
-
-class function TInterfaceFactory.SQLServerConnection: IDBConnection;
-begin
-  Result := TDBSqlConnection.Create;
+  Result := TSqliteConnection.Create;
 end;
 
 class function TInterfaceFactory.MariaDBConnection: IDBConnection;
 begin
-  Result := TDBMariaDB.Create;
+  Result := TMariaDBConnection.Create;
 end;
 
 class function TInterfaceFactory.Query(const AConnection: IDBConnection): IQuery;
@@ -115,31 +98,6 @@ end;
 class function TObjectFactory.Resources: TResources;
 begin
   Result := TResources.Create;
-end;
-
-class function TObjectFactory.SQLite3Conn: TSQLite3Connection;
-begin
-  Result := TSQLite3Connection.Create(nil);
-end;
-
-class function TObjectFactory.SQLServerConn: TSQLConnector;
-begin
-  Result := TSQLConnector.Create(nil);
-end;
-
-class function TObjectFactory.MySQL57Conn: TMySQL57Connection;
-begin
-  Result := TMySQL57Connection.Create(nil);
-end;
-
-class function TObjectFactory.SQLQuery: TSQLQuery;
-begin
-  Result := TSQLQuery.Create(nil);
-end;
-
-class function TObjectFactory.Transaction: TSQLTransaction;
-begin
-  Result := TSqlTransaction.Create(nil);
 end;
 
 class function TObjectFactory.StringList: TStringList;

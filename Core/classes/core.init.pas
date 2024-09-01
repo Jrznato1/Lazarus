@@ -32,32 +32,34 @@ uses
 procedure TInit.DoInitialize;
 var
   LResSqlite: IResource;
-  LResMySql: IResource;
+  LResMariaDB: IResource;
   LCount: Integer;
 begin
   LResSqlite := Factories.Interfaces.Resource;
-  LResMySql := Factories.Interfaces.Resource;
+  LResMariaDB := Factories.Interfaces.Resource;
 
   // Prepara o resource de SQLite
   LCount := Resources.Count + 1;
+  LResSqlite.ID(LCount).Name(CORE_RESOURCE_SQLITE_DLL);
   LResSqlite
-    .Name('sqlite3')
     .Extension('.dll')
     .Path(CORE_MAIN_APP_PATH + LResSqlite.Name + LResSqlite.Extension)
     .Directory(CORE_MAIN_APP_PATH)
     .Load;
-  Resources.Add(LCount, LResSqlite);
+
+  Resources.Add(LResSqlite.ID, LResSqlite);
   Resources[LCount].Save;
 
-  // Prepara o resource de MySQL
+  // Prepara o resource de MariaDB
   Inc(LCount);
-  LResMySQL
-    .Name('libmysql')
+  LResMariaDB.ID(LCount).Name(CORE_RESOURCE_MARIADB_DLL);
+  LResMariaDB
     .Extension('.dll')
-    .Path(CORE_MAIN_APP_PATH + LResMySQL.Name + LResMySql.Extension)
+    .Path(CORE_MAIN_APP_PATH + LResMariaDB.Name + LResMariaDB.Extension)
     .Directory(CORE_MAIN_APP_PATH)
     .Load;
-  Resources.Add(LCount, LResMySQL);
+
+  Resources.Add(LResMariaDB.ID, LResMariaDB);
   Resources[LCount].Save;
 end;
 
@@ -79,7 +81,7 @@ end;
 
 initialization
   {$I ..\Resources\SQLite.lrs}
-  {$I ..\Resources\MySQL.lrs}
+  {$I ..\Resources\MariaDB.lrs}
 
 end.
 

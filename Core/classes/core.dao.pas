@@ -7,8 +7,7 @@ interface
 uses
   core.types,
   Classes,
-  SysUtils,
-  DB;
+  SysUtils;
 
 type
   // Base de DAO
@@ -43,26 +42,26 @@ implementation
 uses
   core.consts,
   core.globals,
-  SQLDB;
+  core.connections;
 
 { TDao }
 
 procedure TDao.StartTran;
 begin
-  if not TSQLConnection(FConnection.AsObject).Transaction.Active then
-    TSQLConnection(FConnection.AsObject).Transaction.StartTransaction;
+  if not TDBConnection(FConnection.AsObject).GetConn.InTransaction then
+    TDBConnection(FConnection.AsObject).GetConn.StartTransaction;
 end;
 
 procedure TDao.RollbackTran;
 begin
-  if TSQLConnection(FConnection.AsObject).Transaction.Active then
-    TSQLConnection(FConnection.AsObject).Transaction.Rollback;
+  if TDBConnection(FConnection.AsObject).GetConn.InTransaction then
+    TDBConnection(FConnection.AsObject).GetConn.Rollback;
 end;
 
 procedure TDao.CommitTran;
 begin
-  if TSQLConnection(FConnection.AsObject).Transaction.Active then
-    TSQLConnection(FConnection.AsObject).Transaction.Commit;
+  if TDBConnection(FConnection.AsObject).GetConn.InTransaction then
+    TDBConnection(FConnection.AsObject).GetConn.Commit;
 end;
 
 procedure TDao.DoSelect(AScript: String);
@@ -74,7 +73,7 @@ begin
     FQuery.Script.Text := AScript;
     FQuery.Open;
   except
-    on E: Exception do raise Exception.Create('DAO - Falha ao realizar a consulta' + CORE_DOUBLE_LINEBREAK + E.Message);
+    on E: Exception do raise Exception.Create('DAO - ' + E.Message);
   end;
 end;
 
@@ -87,7 +86,7 @@ begin
     FQuery.Script.Text := AScript;
     FQuery.Exec;
   except
-    on E: Exception do raise Exception.Create('DAO - Falha ao executar o SCRIPT' + CORE_DOUBLE_LINEBREAK + E.Message);
+    on E: Exception do raise Exception.Create('DAO - ' + E.Message);
   end;
 end;
 
@@ -146,29 +145,13 @@ end;
 function TDao.Select(const AScript: String): IQuery;
 begin
   Result := FQuery;
-  try
-    DoSelect(AScript);
-  except
-    on E: Exception do
-    begin
-      Rollback;
-      raise Exception.Create('DAO - Falha ao realizar uma consulta' + CORE_DOUBLE_LINEBREAK + E.Message);
-    end;
-  end;
+  DoSelect(AScript);
 end;
 
 function TDao.Execute(const AScript: String): IQuery;
 begin
   Result := FQuery;
-  try
-    DoExecute(AScript);
-  except
-    on E: Exception do
-    begin
-      Rollback;
-      raise Exception.Create('DAO - Falha ao executar o script' + CORE_DOUBLE_LINEBREAK + E.Message);
-    end;
-  end;
+  DoExecute(AScript);
 end;
 
 constructor TDao.Create;

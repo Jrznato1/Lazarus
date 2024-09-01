@@ -1,0 +1,198 @@
+object frmMariaDB: TfrmMariaDB
+  Left = 469
+  Height = 598
+  Top = 250
+  Width = 743
+  Caption = 'frmMariaDB'
+  ClientHeight = 598
+  ClientWidth = 743
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 305
+    Width = 145
+    Caption = 'Informe o nome do usuário'
+  end
+  object btAdd: TButton
+    Left = 296
+    Height = 25
+    Top = 321
+    Width = 75
+    Caption = 'Incluir'
+    TabOrder = 0
+    OnClick = btAddClick
+  end
+  object edUsuario: TEdit
+    Left = 8
+    Height = 23
+    Top = 322
+    Width = 280
+    CharCase = ecUppercase
+    MaxLength = 100
+    TabOrder = 1
+  end
+  object Grade: TDBGrid
+    Left = 96
+    Height = 216
+    Top = 351
+    Width = 616
+    Color = clWindow
+    Columns = <    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'ID'
+        Width = 100
+        FieldName = 'cd_Usuario'
+      end    
+      item
+        Title.Caption = 'Nome'
+        Width = 450
+        FieldName = 'ds_Usuario'
+      end>
+    DataSource = dsUsuario
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 2
+  end
+  object btRemover: TButton
+    Left = 8
+    Height = 25
+    Top = 351
+    Width = 75
+    Caption = 'Remover'
+    TabOrder = 3
+    OnClick = btRemoverClick
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 13
+    Width = 43
+    Caption = 'Servidor'
+  end
+  object Label4: TLabel
+    Left = 19
+    Height = 15
+    Top = 72
+    Width = 40
+    Caption = 'Usuário'
+  end
+  object Label5: TLabel
+    Left = 27
+    Height = 15
+    Top = 101
+    Width = 32
+    Caption = 'Senha'
+  end
+  object Label6: TLabel
+    Left = 31
+    Height = 15
+    Top = 131
+    Width = 28
+    Caption = 'Porta'
+  end
+  object edServer: TEdit
+    Left = 72
+    Height = 23
+    Top = 11
+    Width = 167
+    TabOrder = 4
+    Text = 'LocalHost'
+  end
+  object edUser: TEdit
+    Left = 72
+    Height = 23
+    Top = 69
+    Width = 167
+    TabOrder = 5
+    Text = 'root'
+  end
+  object edPassword: TEdit
+    Left = 72
+    Height = 23
+    Top = 98
+    Width = 167
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 6
+  end
+  object edPort: TEdit
+    Left = 72
+    Height = 23
+    Top = 128
+    Width = 167
+    NumbersOnly = True
+    TabOrder = 7
+    Text = '3306'
+  end
+  object meLog: TMemo
+    Left = 16
+    Height = 106
+    Top = 161
+    Width = 456
+    ScrollBars = ssAutoVertical
+    TabOrder = 8
+  end
+  object btConectar: TButton
+    Left = 264
+    Height = 25
+    Top = 16
+    Width = 75
+    Caption = 'Conectar'
+    TabOrder = 9
+    OnClick = btConectarClick
+  end
+  object Label7: TLabel
+    Left = 35
+    Height = 15
+    Top = 43
+    Width = 24
+    Caption = 'Base'
+  end
+  object edDatabase: TEdit
+    Left = 72
+    Height = 23
+    Top = 40
+    Width = 167
+    TabOrder = 10
+    Text = 'LazTeste'
+  end
+  object btRemoverTodos: TButton
+    Left = 375
+    Height = 25
+    Top = 320
+    Width = 99
+    Caption = 'Remover Tudo'
+    TabOrder = 11
+    OnClick = btRemoverTodosClick
+  end
+  object bdsUsuario: TBufDataset
+    FieldDefs = <>
+    Left = 536
+    Top = 248
+    object bdsUsuariocd_Usuario: TLongintField
+      FieldKind = fkData
+      FieldName = 'cd_Usuario'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object bdsUsuariods_Usuario: TStringField
+      FieldKind = fkData
+      FieldName = 'ds_Usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 250
+    end
+  end
+  object dsUsuario: TDataSource
+    DataSet = bdsUsuario
+    Left = 536
+    Top = 304
+  end
+end

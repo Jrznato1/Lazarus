@@ -6,16 +6,15 @@ interface
 
 uses
   core.types,
+  core.identifier,
   Classes,
   Dialogs,
   SysUtils;
 
 type
   // Classe base de Arquivo
-  // Herda de TCore
-  TFile = class(TCore, IFile)
+  TFile = class(TIdentifier, IFile)
   strict private
-    FName: string;
     FExt: String;
     FStream: TBytesStream;
     FPath: String;
@@ -33,8 +32,6 @@ type
 
     function IsEmpty: Boolean;
 
-    function Name: string;
-    function Name(const AFileName: string): IFile;
     function Extension: String;
     function Extension(const AExtension: String): IFile;
     function Path: String;
@@ -110,17 +107,6 @@ begin
   Result := Length(FStream.Bytes) = 0;
 end;
 
-function TFile.Name: string;
-begin
-  Result := FName;
-end;
-
-function TFile.Name(const AFileName: string): IFile;
-begin
-  Result := Self;
-  FName := AFileName;
-end;
-
 function TFile.Extension: String;
 begin
   Result := FExt;
@@ -176,7 +162,7 @@ begin
   Result := Self;
   if not APath.IsEmpty then
   begin
-    FName := ExtractFileName( APath );
+    Name( ExtractFileName(APath) );
     FExt := ExtractFileExt( APath );
     FPath := APath;
     FDirectory := ExtractFileDir( APath );

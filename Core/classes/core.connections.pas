@@ -8,9 +8,7 @@ uses
   core.types,
   Classes,
   SysUtils,
-  SQLite3Conn,
-  SQLDB,
-  mysql57conn;
+  ZConnection;
 
 type
   { Base de Conexão }
@@ -19,6 +17,8 @@ type
     FIsConnected: Boolean;
     FTimeOut: Integer;
     FPort: Integer;
+    const
+      CONNECTION_MAIN_PORT = 8080;
   protected
     procedure DoConnect; virtual; abstract;
     procedure DoDisconnect; virtual; abstract;
@@ -39,21 +39,22 @@ type
   end;
 
   { Base de conexão DB - Database }
-  generic TDBConnection<T> = class(TConnection, IDBConnection)
+  TDBConnection = class(TConnection, IDBConnection)
   strict private
-    FConn: T;
+    FConn: TZConnection;
     FDatabase: String;
     FUsername: String;
     FPassword: String;
     FHostname: String;
     FKeepConnection: Boolean;
     FLoginPrompt: Boolean;
+    FUseWindowsAuth: Boolean;
+    FLibLocation: String;
+    FProtocol: String;
   protected
-    function GetConn: T;
-    procedure SetConn(AConnection: T);
-
     procedure DoConnect; override;
     procedure DoDisconnect; override;
+    procedure PrepareConnection; virtual;
   public
     function Database: string;
     function Database(const ADatabase: string): IDBConnection;
@@ -67,23 +68,25 @@ type
     function KeepConnection(const KeepConnected: Boolean): IDBConnection;
     function LoginPrompt: Boolean;
     function LoginPrompt(const Prompt: Boolean): IDBConnection;
+    function UseWindowsAuth: Boolean;
+    function UseWindowsAuth(const AUseWindowsAuth: Boolean): IDBConnection;
+    function LibLocation: String;
+    function LibLocation(const ALibraryLocation: String): IDBConnection;
+    function Protocol: String;
+    function Protocol(const AConnProtocol: String): IDBConnection;
+
+    function GetConn: TZConnection;
+    procedure SetConn(AConnection: TZConnection);
 
     constructor Create; override;
     destructor Destroy; override;
   end;
 
   // Conexão DB - SQLite
-  TDBSqliteConnection = class(specialize TDBConnection<TSQLite3Connection>, IDBConnection)
+  TSqliteConnection = class(TDBConnection, IDBConnection)
   strict private
-  protected
-  public
-    constructor Create; override;
-    destructor Destroy; override;
-  end;
-
-  // Conexão DB - SQL Server
-  TDBSqlConnection = class(specialize TDBConnection<TSQLConnector>, IDBConnection)
-  strict private
+    const
+      SQLITE_PROTOCOL = 'sqlite';
   protected
   public
     constructor Create; override;
@@ -91,8 +94,12 @@ type
   end;
 
   // Conexão DB - MariaDB
-  TDBMariaDB = class(specialize TDBConnection<TMySQL57Connection>, IDBConnection)
+  TMariaDBConnection = class(TDBConnection, IDBConnection)
   strict private
+    const
+      MARIADB_MAIN_PORT = 3306;
+      MARIADB_PROTOCOL  = 'mariadb';
+      MARIADB_MAIN_USER = 'root';
   protected
   public
     constructor Create; override;
@@ -156,6 +163,7 @@ constructor TConnection.Create;
 begin
   inherited Create;
   FIsConnected := False;
+  FPort := CONNECTION_MAIN_PORT;
 end;
 
 destructor TConnection.Destroy;
@@ -165,12 +173,12 @@ end;
 
 { TDBConnection }
 
-function TDBConnection.GetConn: T;
+function TDBConnection.GetConn: TZConnection;
 begin
   Result := FConn;
 end;
 
-procedure TDBConnection.SetConn(AConnection: T);
+procedure TDBConnection.SetConn(AConnection: TZConnection);
 begin
   FConn := AConnection;
 end;
@@ -178,34 +186,40 @@ end;
 procedure TDBConnection.DoConnect;
 begin
   try
-    with TSQLConnection(FConn) do
+    PrepareConnection;
+    if not FConn.Connected then
     begin
-      if not Connected then
-      begin
-        DatabaseName := Self.Database;
-        UserName := Self.Username;
-        Password := Self.Password;
-        LoginPrompt := Self.LoginPrompt;
-        KeepConnection := Self.KeepConnection;
-        Open;
-      end;
+      FConn.Connect;
+      IsConnected(FConn.Connected);
     end;
   except
-    on E: Exception do Exception.Create('DBConnection - Falha ao conectar.' + CORE_DOUBLE_LINEBREAK + E.Message);
+    on E: Exception do raise Exception.Create('DBConnection - Falha ao conectar.' + CORE_DOUBLE_LINEBREAK + E.Message);
   end;
 end;
 
 procedure TDBConnection.DoDisconnect;
 begin
   try
-    with TSQLConnection(FConn) do
+    if FConn.Connected then
     begin
-      if Connected then
-        Close;
+      FConn.Disconnect;
+      IsConnected(False);
     end;
   except
-    on E: Exception do Exception.Create('DBConnection - Falha ao desconectar.' + CORE_DOUBLE_LINEBREAK + E.Message);
+    on E: Exception do raise Exception.Create('DBConnection - Falha ao desconectar.' + CORE_DOUBLE_LINEBREAK + E.Message);
   end;
+end;
+
+procedure TDBConnection.PrepareConnection;
+begin
+  FConn.Database := FDatabase;
+  FConn.User := FUsername;
+  FConn.Password := FPassword;
+  FConn.LoginPrompt := FLoginPrompt;
+  FConn.HostName := FHostname;
+  FConn.Port := Port;
+  FConn.Protocol := FProtocol;
+  FConn.LibraryLocation := FLibLocation;
 end;
 
 function TDBConnection.Database: string;
@@ -275,12 +289,48 @@ begin
   FLoginPrompt := Prompt;
 end;
 
+function TDBConnection.UseWindowsAuth: Boolean;
+begin
+  Result := FUseWindowsAuth;
+end;
+
+function TDBConnection.UseWindowsAuth(const AUseWindowsAuth: Boolean
+  ): IDBConnection;
+begin
+  Result := Self;
+  FUseWindowsAuth := AUseWindowsAuth;
+end;
+
+function TDBConnection.LibLocation: String;
+begin
+  Result := FLibLocation;
+end;
+
+function TDBConnection.LibLocation(const ALibraryLocation: String
+  ): IDBConnection;
+begin
+  Result := Self;
+  FLibLocation := ALibraryLocation;
+end;
+
+function TDBConnection.Protocol: String;
+begin
+  Result := FProtocol;
+end;
+
+function TDBConnection.Protocol(const AConnProtocol: String): IDBConnection;
+begin
+  Result := Self;
+  FProtocol := AConnProtocol;
+end;
+
 constructor TDBConnection.Create;
 begin
   inherited Create;
   FLoginPrompt := False;
   FKeepConnection := False;
   TimeOut( CORE_DB_OPERATION_TIMELIMIT );
+  FConn := TZConnection.Create(nil);
 end;
 
 destructor TDBConnection.Destroy;
@@ -290,41 +340,32 @@ begin
   inherited Destroy;
 end;
 
-{ TDBSqliteConnection }
+{ TSqliteConnection }
 
-constructor TDBSqliteConnection.Create;
+constructor TSqliteConnection.Create;
 begin
   inherited Create;
-  SetConn( Factories.Objects.SQLite3Conn );
+  Protocol( SQLITE_PROTOCOL );
+  LibLocation(CORE_MAIN_APP_PATH + CORE_RESOURCE_SQLITE_DLL + '.dll');
 end;
 
-destructor TDBSqliteConnection.Destroy;
+destructor TSqliteConnection.Destroy;
 begin
   inherited Destroy;
 end;
 
-{ TDBSqlConnection }
+{ TMariaDBConnection }
 
-constructor TDBSqlConnection.Create;
+constructor TMariaDBConnection.Create;
 begin
   inherited Create;
-  SetConn( Factories.Objects.SQLServerConn );
+  Username( MARIADB_MAIN_USER );
+  Port( MARIADB_MAIN_PORT );
+  Protocol( MARIADB_PROTOCOL );
+  LibLocation(CORE_MAIN_APP_PATH + CORE_RESOURCE_MARIADB_DLL +  '.dll');
 end;
 
-destructor TDBSqlConnection.Destroy;
-begin
-  inherited Destroy;
-end;
-
-{ TDBMariaDB }
-
-constructor TDBMariaDB.Create;
-begin
-  inherited Create;
-  SetConn( Factories.Objects.MySQL57Conn );
-end;
-
-destructor TDBMariaDB.Destroy;
+destructor TMariaDBConnection.Destroy;
 begin
   inherited Destroy;
 end;

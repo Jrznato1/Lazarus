@@ -6,7 +6,6 @@ object FormMain: TFormMain
   Caption = 'FormMain'
   ClientHeight = 565
   ClientWidth = 831
-  OnShow = FormShow
   object Edit1: TEdit
     Left = 24
     Height = 23
@@ -66,5 +65,14 @@ object FormMain: TFormMain
     Caption = 'btDeleteDialog'
     TabOrder = 5
     OnClick = btDeleteDialogClick
+  end
+  object btMariaDB: TButton
+    Left = 424
+    Height = 25
+    Top = 24
+    Width = 75
+    Caption = 'MariaDB'
+    TabOrder = 6
+    OnClick = btMariaDBClick
   end
 end

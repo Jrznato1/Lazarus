@@ -4,4 +4,5 @@ object Form1: TForm1
   Top = 250
   Width = 324
   Caption = 'Form1'
+  LCLVersion = '3.4.0.0'
 end

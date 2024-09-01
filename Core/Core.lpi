@@ -58,6 +58,15 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="zcomponentdesign"/>
+      </Item>
+      <Item>
+        <PackageName Value="zcomponent"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
         <PackageName Value="SQLDBLaz"/>
       </Item>
       <Item>
@@ -132,6 +141,13 @@
         <Filename Value="views\core.view.mobile.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="views\core.view.mariadb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMariaDB"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
