@@ -1,4 +1,4 @@
-unit core.view.mariadb;
+unit core.view.sqlite;
 
 {$mode ObjFPC}{$H+}
 
@@ -8,8 +8,8 @@ uses
   core.types,
   Classes,
   SysUtils,
-  BufDataset,
   DB,
+  BufDataset,
   Forms,
   Controls,
   Graphics,
@@ -18,77 +18,71 @@ uses
   DBGrids;
 
 type
-  TViewMariaDB = class(TForm)
+  TViewSqlite = class(TForm)
     bdsUsuariocd_Usuario: TLongintField;
     bdsUsuariods_Usuario: TStringField;
-    btAdd: TButton;
-    btRemover: TButton;
+    btDatabase: TButton;
     btConectar: TButton;
+    btIncluir: TButton;
+    btRemover: TButton;
     bdsUsuario: TBufDataset;
-    btRemoverTodos: TButton;
     dsUsuario: TDataSource;
-    edServer: TEdit;
-    edUser: TEdit;
-    edPassword: TEdit;
-    edPort: TEdit;
-    edDatabase: TEdit;
     Grade: TDBGrid;
+    edDatabase: TEdit;
     edUsuario: TEdit;
     Label1: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
+    Label2: TLabel;
     meLog: TMemo;
-    procedure btAddClick(Sender: TObject);
     procedure btConectarClick(Sender: TObject);
+    procedure btDatabaseClick(Sender: TObject);
+    procedure btIncluirClick(Sender: TObject);
     procedure btRemoverClick(Sender: TObject);
-    procedure btRemoverTodosClick(Sender: TObject);
   private
     FDao: IDao;
     procedure LoadUsuarios;
   public
-    property DAO: IDao read FDao;
+    property Dao: IDao read FDao;
+
     constructor Create(TheOwner: TComponent); override;
+    destructor Destroy; override;
   end;
 
 var
-  ViewMariaDB: TViewMariaDB;
+  ViewSqlite: TViewSqlite;
 
 implementation
 
 uses
-  core.globals,
-  core.helpers;
+  core.helpers,
+  core.globals;
 
 {$R *.lfm}
 
-{ TViewMariaDB }
+{ TViewSqlite }
 
-procedure TViewMariaDB.btConectarClick(Sender: TObject);
+procedure TViewSqlite.btDatabaseClick(Sender: TObject);
+var
+  LFile: IFile;
 begin
-  try
-    FDao.Connection
-      .Hostname( edServer.Text )
-      .Database( edDatabase.Text )
-      .Username( edUser.Text )
-      .Password( edPassword.Text )
-      .Port( edPort.Text.AsString.ToInteger );
+  LFile := Factories.Interfaces.AFile;
+  LFile.LoadWithDialog(['SQLite Database|*.db']);
+  edDatabase.Text := LFile.Path;
+end;
 
-    FDao.Connection.Connect;
-
-    if FDao.Connection.IsConnected then
-    begin
-      meLog.Lines.Add('Conectado com sucesso');
+procedure TViewSqlite.btIncluirClick(Sender: TObject);
+begin
+  if not edUsuario.Text.AsString.IsEmpty then
+  begin
+    try
+      FDao.Execute('insert into tb_Usuario (ds_Usuario) values(' + edUsuario.Text.AsString.QuotedString + ')');
       LoadUsuarios;
+    except
+      on E: Exception do ShowMessage(E.Message);
     end;
-  except
-    on E: Exception do meLog.Lines.Add(E.Message);
   end;
 end;
 
-procedure TViewMariaDB.btRemoverClick(Sender: TObject);
+procedure TViewSqlite.btRemoverClick(Sender: TObject);
 begin
   if not bdsUsuario.IsEmpty then
   begin
@@ -101,13 +95,7 @@ begin
   end;
 end;
 
-procedure TViewMariaDB.btRemoverTodosClick(Sender: TObject);
-begin
-  FDao.Execute('delete from tb_Usuario');
-  LoadUsuarios;
-end;
-
-procedure TViewMariaDB.LoadUsuarios;
+procedure TViewSqlite.LoadUsuarios;
 var
   LDataset: TDataSet;
 begin
@@ -136,23 +124,32 @@ begin
   end;
 end;
 
-procedure TViewMariaDB.btAddClick(Sender: TObject);
+procedure TViewSqlite.btConectarClick(Sender: TObject);
 begin
-  if not edUsuario.Text.AsString.IsEmpty then
-  begin
-    try
-      FDao.Execute('insert into tb_Usuario (ds_Usuario) values(' + edUsuario.Text.AsString.QuotedString + ')');
+  try
+    FDao.Connection
+      .Database( edDatabase.Text )
+      .Connect;
+
+    if FDao.Connection.IsConnected then
+    begin
+      meLog.Lines.Add('Conectado com sucesso');
       LoadUsuarios;
-    except
-      on E: Exception do ShowMessage(E.Message);
     end;
+  except
+    on E: Exception do meLog.Lines.Add(E.Message);
   end;
 end;
 
-constructor TViewMariaDB.Create(TheOwner: TComponent);
+constructor TViewSqlite.Create(TheOwner: TComponent);
 begin
   inherited Create(TheOwner);
-  FDao := Factories.Interfaces.DAO( Factories.Interfaces.MariaDBConnection );
+  FDao := Factories.Interfaces.DAO( Factories.Interfaces.SQLiteConnection );
+end;
+
+destructor TViewSqlite.Destroy;
+begin
+  inherited Destroy;
 end;
 
 end.

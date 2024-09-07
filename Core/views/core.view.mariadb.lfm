@@ -1,9 +1,9 @@
-object frmMariaDB: TfrmMariaDB
+object ViewMariaDB: TViewMariaDB
   Left = 469
   Height = 598
   Top = 250
   Width = 743
-  Caption = 'frmMariaDB'
+  Caption = 'ViewMariaDB'
   ClientHeight = 598
   ClientWidth = 743
   object Label1: TLabel

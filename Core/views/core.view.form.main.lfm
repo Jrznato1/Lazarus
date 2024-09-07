@@ -75,4 +75,13 @@ object FormMain: TFormMain
     TabOrder = 6
     OnClick = btMariaDBClick
   end
+  object btSqlite: TButton
+    Left = 424
+    Height = 25
+    Top = 56
+    Width = 75
+    Caption = 'SQLite'
+    TabOrder = 7
+    OnClick = btSqliteClick
+  end
 end

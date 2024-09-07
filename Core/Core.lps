@@ -8,8 +8,8 @@
       <Unit>
         <Filename Value="Core.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="48" Y="25"/>
-        <UsageCount Value="146"/>
+        <CursorPos X="27" Y="29"/>
+        <UsageCount Value="147"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -19,8 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="26" Y="88"/>
-        <UsageCount Value="146"/>
+        <TopLine Value="50"/>
+        <CursorPos X="47" Y="69"/>
+        <UsageCount Value="147"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -29,14 +30,14 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="55" Y="22"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.globals.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="29"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.factories.pas"/>
@@ -45,7 +46,7 @@
         <TopLine Value="41"/>
         <CursorPos X="26" Y="57"/>
         <FoldState Value=" T3iH638 POg6r"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.types.pas"/>
@@ -54,14 +55,14 @@
         <TopLine Value="9"/>
         <CursorPos X="27" Y="50"/>
         <FoldState Value=" TJE1341213 pjSkM1C T3lB043M"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.enums.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="13"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.connections.pas"/>
@@ -70,7 +71,7 @@
         <TopLine Value="296"/>
         <CursorPos X="40" Y="336"/>
         <FoldState Value=" T3jU03F piXjR04I1111 PiYk90m"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="147"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.files.pas"/>
@@ -78,7 +79,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="179"/>
         <CursorPos X="32" Y="189"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="139"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.helpers.pas"/>
@@ -86,13 +87,13 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="5" Y="55"/>
-        <UsageCount Value="134"/>
+        <UsageCount Value="135"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.resources.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="98"/>
+        <UsageCount Value="99"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.init.pas"/>
@@ -101,15 +102,15 @@
         <TopLine Value="28"/>
         <CursorPos X="60" Y="40"/>
         <FoldState Value=" T3iM042z"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.dao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="34"/>
         <CursorPos X="44" Y="129"/>
-        <UsageCount Value="75"/>
+        <UsageCount Value="76"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -117,14 +118,14 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="43" Y="33"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
       </Unit>
       <Unit>
         <Filename Value="classes\core.querys.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="39" Y="23"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -135,19 +136,32 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="67" Y="8"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit>
       <Unit>
         <Filename Value="views\core.view.mariadb.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmMariaDB"/>
+        <ComponentName Value="ViewMariaDB"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="91"/>
+        <CursorPos X="7" Y="100"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ViewSqlite"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="69"/>
-        <CursorPos X="20" Y="97"/>
-        <UsageCount Value="38"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="120"/>
+        <CursorPos X="48" Y="132"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -439,74 +453,126 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="16">
+    <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="67" TopLine="50"/>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="15" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="16" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="17" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="18" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="19" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="20" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="21" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="23" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="24" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="25" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="26" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="27" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="31" Column="18" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="10" Column="34"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="42" Column="34" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="44" Column="34" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="50" Column="49" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="66" Column="30" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="65" Column="30" TopLine="41"/>
       </Position>
       <Position>
         <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="57" Column="24" TopLine="50"/>
+        <Caret Line="78" Column="12" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="18" Column="10"/>
       </Position>
       <Position>
         <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="58" Column="24" TopLine="51"/>
+        <Caret Line="71" Column="19" TopLine="69"/>
       </Position>
       <Position>
         <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="57" Column="24" TopLine="50"/>
+        <Caret Line="50" Column="15" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="40" Column="28" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="94" Column="22" TopLine="68"/>
       </Position>
       <Position>
         <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="16" Column="19"/>
+        <Caret Line="129" Column="33" TopLine="82"/>
+      </Position>
+      <Position>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="114" Column="20" TopLine="79"/>
       </Position>
       <Position>
         <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="58" Column="22" TopLine="52"/>
+        <Caret Line="138" Column="23" TopLine="124"/>
       </Position>
       <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="57" Column="22" TopLine="51"/>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="56" Column="16" TopLine="56"/>
       </Position>
       <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="18" Column="18" TopLine="52"/>
-      </Position>
-      <Position>
-        <Filename Value="classes\core.dao.pas"/>
-        <Caret Line="125" Column="98" TopLine="90"/>
-      </Position>
-      <Position>
-        <Filename Value="classes\core.dao.pas"/>
-        <Caret Line="80" TopLine="60"/>
-      </Position>
-      <Position>
-        <Filename Value="classes\core.dao.pas"/>
-        <Caret Line="162" Column="3" TopLine="139"/>
-      </Position>
-      <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="82" Column="35" TopLine="64"/>
-      </Position>
-      <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="89" Column="35" TopLine="66"/>
-      </Position>
-      <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="49" Column="28" TopLine="23"/>
-      </Position>
-      <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="100" Column="3" TopLine="77"/>
-      </Position>
-      <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="104" Column="32" TopLine="87"/>
-      </Position>
-      <Position>
-        <Filename Value="views\core.view.mariadb.pas"/>
-        <Caret Line="94" Column="25" TopLine="69"/>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <Caret Line="91" Column="25" TopLine="67"/>
       </Position>
     </JumpHistory>
     <RunParams>

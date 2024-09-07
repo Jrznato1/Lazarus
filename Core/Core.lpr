@@ -25,7 +25,9 @@ uses
   core.view.form.main,
   core.identifier,
   core.querys,
-  core.view.mobile, core.view.mariadb;
+  core.view.mobile,
+  core.view.mariadb,
+  core.view.sqlite;
 
 {$R *.res}
 
@@ -38,7 +40,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TfrmMariaDB, frmMariaDB);
+  Application.CreateForm(TViewMariaDB, ViewMariaDB);
+  Application.CreateForm(TViewSqlite, ViewSqlite);
   Application.Run;
 end.
 

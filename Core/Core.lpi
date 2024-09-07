@@ -147,8 +147,14 @@
       <Unit>
         <Filename Value="views\core.view.mariadb.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmMariaDB"/>
+        <ComponentName Value="ViewMariaDB"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="views\core.view.sqlite.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ViewSqlite"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>

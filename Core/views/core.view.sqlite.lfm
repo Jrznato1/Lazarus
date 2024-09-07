@@ -1,0 +1,136 @@
+object ViewSqlite: TViewSqlite
+  Left = 525
+  Height = 490
+  Top = 250
+  Width = 612
+  Caption = 'ViewSqlite'
+  ClientHeight = 490
+  ClientWidth = 612
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 8
+    Width = 155
+    Caption = 'Localização da base de dados'
+  end
+  object edDatabase: TEdit
+    Left = 16
+    Height = 23
+    Top = 28
+    Width = 512
+    Enabled = False
+    TabOrder = 0
+  end
+  object btDatabase: TButton
+    Left = 536
+    Height = 25
+    Top = 26
+    Width = 27
+    Caption = '...'
+    TabOrder = 1
+    OnClick = btDatabaseClick
+  end
+  object btConectar: TButton
+    Left = 16
+    Height = 25
+    Top = 70
+    Width = 75
+    Caption = 'Conectar'
+    TabOrder = 2
+    OnClick = btConectarClick
+  end
+  object meLog: TMemo
+    Left = 16
+    Height = 82
+    Top = 101
+    Width = 544
+    ScrollBars = ssAutoVertical
+    TabOrder = 3
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 15
+    Top = 234
+    Width = 40
+    Caption = 'Usuário'
+  end
+  object edUsuario: TEdit
+    Left = 16
+    Height = 23
+    Top = 252
+    Width = 320
+    TabOrder = 4
+  end
+  object btIncluir: TButton
+    Left = 342
+    Height = 25
+    Top = 250
+    Width = 75
+    Caption = 'Incluir'
+    TabOrder = 5
+    OnClick = btIncluirClick
+  end
+  object btRemover: TButton
+    Left = 16
+    Height = 25
+    Top = 296
+    Width = 75
+    Caption = 'Remover'
+    TabOrder = 6
+    OnClick = btRemoverClick
+  end
+  object Grade: TDBGrid
+    Left = 104
+    Height = 180
+    Top = 296
+    Width = 456
+    Color = clWindow
+    Columns = <    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'ID'
+        Width = 80
+        FieldName = 'cd_Usuario'
+      end    
+      item
+        Title.Caption = 'Nome'
+        Width = 320
+        FieldName = 'ds_Usuario'
+      end>
+    DataSource = dsUsuario
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    Scrollbars = ssAutoVertical
+    TabOrder = 7
+  end
+  object dsUsuario: TDataSource
+    DataSet = bdsUsuario
+    Left = 440
+    Top = 192
+  end
+  object bdsUsuario: TBufDataset
+    FieldDefs = <>
+    Left = 360
+    Top = 192
+    object bdsUsuariocd_Usuario: TLongintField
+      FieldKind = fkData
+      FieldName = 'cd_Usuario'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object bdsUsuariods_Usuario: TStringField
+      FieldKind = fkData
+      FieldName = 'ds_Usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 250
+    end
+  end
+end

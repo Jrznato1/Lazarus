@@ -7,6 +7,7 @@ interface
 uses
   core.types,
   core.view.mariadb,
+  core.view.sqlite,
   Classes,
   SysUtils,
   SQLite3Conn,
@@ -27,6 +28,7 @@ type
     btSaveDialog: TButton;
     btDeleteDialog: TButton;
     btMariaDB: TButton;
+    btSqlite: TButton;
     Edit1: TEdit;
     Image1: TImage;
     Memo1: TMemo;
@@ -34,6 +36,7 @@ type
     procedure btMariaDBClick(Sender: TObject);
     procedure btOpenDialogoClick(Sender: TObject);
     procedure btSaveDialogClick(Sender: TObject);
+    procedure btSqliteClick(Sender: TObject);
   private
 
   public
@@ -71,6 +74,16 @@ begin
   TesteFile.SaveWithDialog(['JPG Image|*.jpg','JPEG Image|*.jpeg']);
 end;
 
+procedure TFormMain.btSqliteClick(Sender: TObject);
+begin
+  ViewSqlite := TViewSqlite.Create(Self);
+  try
+    ViewSqlite.ShowModal;
+  finally
+    ViewSqlite.Free;
+  end;
+end;
+
 procedure TFormMain.btOpenDialogoClick(Sender: TObject);
 begin
   TesteFile.LoadWithDialog(['JPG Image|*.jpg','JPEG Image|*.jpeg']);
@@ -83,11 +96,11 @@ end;
 
 procedure TFormMain.btMariaDBClick(Sender: TObject);
 begin
-  frmMariaDB := TfrmMariaDB.Create(Self);
+  ViewMariaDB := TViewMariaDB.Create(Self);
   try
-    frmMariaDB.ShowModal;
+    ViewMariaDB.ShowModal;
   finally
-    frmMariaDB.Free;
+    ViewMariaDB.Free;
   end;
 end;
 
